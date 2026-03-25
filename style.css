@@ -1,0 +1,44 @@
+html, body{
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /*background: linear-gradient(to right, royalblue, indigo )*/
+}
+
+.nav-link{
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.nav-link:hover{
+    color:#c8a97e;
+}
+
+.hero {
+    height: 300px;
+    background-image: url("https://cdn.discordapp.com/attachments/1441365098261254258/1486292281114886164/hero.png?ex=69c4f90d&is=69c3a78d&hm=4d5d77d2014ae254abf63b6129e62704b0566cd3b2faa00b640d6b327d65190d&");
+    background-size: cover;
+    background-position: center;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-box{
+    background: rgb(255, 255, 255, 0.8); 
+    padding: 20px 30px; 
+    border-radius: 10px;
+}
+
+.footer{
+    background: #e6d5c3;
+}
+
+.footer-card{
+    background: (255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
