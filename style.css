@@ -2,6 +2,10 @@ html, body{
     height: 100%;
 }
 
+main{
+    flex: 1; 
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -38,7 +42,7 @@ body {
 }
 
 .footer-card{
-    background: (255, 255, 255, 0.8);
+    background: rgba(255,255,255,0.8);
     padding: 20px;
     border-radius: 10px;
 }
