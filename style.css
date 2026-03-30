@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     /*background: linear-gradient(to right, royalblue, indigo )*/
+    font-family: 'Poppins', sans-serif;
 }
 
 .nav-link{

@@ -19,7 +19,7 @@ categories.forEach(category => {
             <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 shadow-sm border-0 text-center overflow-hidden">
 
-            <a href="product.html?category=${category}"
+            <a href="products.html?category=${category}"
                 class="text-decoration-none text-dark d-flex flex-column h-100">
 
                 <img src="${image}" class="card-img-top p-3"
@@ -32,8 +32,6 @@ categories.forEach(category => {
                     </a>
                     </div>
                     </div>
-            
-            
             
            `; 
         
