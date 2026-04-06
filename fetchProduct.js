@@ -21,7 +21,7 @@ function getProductById(productId) {
                                     ${product.price} €                                
                                     <br>
                                 </div>
-                            </div></a>
+                            </div>
                     </div>
                 `
 

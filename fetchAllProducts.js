@@ -28,7 +28,7 @@ function getProductsByCategory(category) {
                                     <br>
                                     <a href="checkout.html?id=${product.id}" class="btn btn-dark mt-auto mx-auto"> Buy</a>
                                 </div>
-                            </div></a>
+                            </div>
                     </div>
                 `
 

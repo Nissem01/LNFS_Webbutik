@@ -13,13 +13,20 @@ const numberError = document.getElementById("numberError");
 const streetInput = document.getElementById("streetName");
 const streetError = document.getElementById("streetError");
 
-const postnumberInput = document.getElementById("postnumber");
-const postnumberError = document.getElementById("postnumberError");
+const zipcodeInput = document.getElementById("zipcode");
+const zipcodeError = document.getElementById("zipcodeError");
 
 const cityInput = document.getElementById("city");
 const cityError = document.getElementById("cityError");
 
-const result = document.getElementById("result")
+const result = document.getElementById("result");
+
+nameInput.addEventListener("blur", validateName);
+emailInput.addEventListener("blur", validateEmail);
+numberInput.addEventListener("blur", validateNumber);
+streetInput.addEventListener("blur", validateStreet);
+zipcodeInput.addEventListener("blur", validateZipcode);
+cityInput.addEventListener("blur", validateCity);
 
 
 function displayError (el, message) {
@@ -44,7 +51,9 @@ function validateName(){
 
 function validateEmail(){
     let value = emailInput.value.trim()
-    if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))){
+    const check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if (!check.test(value)||value.length > 50){
         displayError(emailError, "Enter a valid mail")
         return false
     }
@@ -54,9 +63,9 @@ function validateEmail(){
 
 function validateNumber(){
     let value = numberInput.value.trim()
-    let regrex = /^[0-9\-() +]{1,20}$/
+    const check = /^[0-9\-()+]{1,20}$/
 
-    if (!regrex.test(value)){
+    if (!check.test(value)){
         displayError(numberError, "Enter a valid phonenumber, max 20 tokens")
         return false
     }
@@ -66,11 +75,8 @@ function validateNumber(){
 
 function validateStreet(){
     let value = streetInput.value.trim()
-    if (value.length < 2 ){
+    if (value.length < 2 || value.length > 50){
         displayError(streetError, "Minimum 2 letters")
-        return false
-    } else if( value.length > 50){
-        displayError(streetError, "Max 50 letters")
         return false
     }else{
     clearError(streetError)
@@ -78,27 +84,24 @@ function validateStreet(){
 }
 }
 
-function validatePostnumber(){
-    let value = postnumberInput.value.trim()
-  
+function validateZipcode(){
+    let value = zipcodeInput.value.trim()
+    const check = /^\d{5}$/
 
-    if (value.length > 5 || value.length < 5){
-        displayError(postnumberError, "Enter a valid postnumber, 5 tokens")
+    if (!check.test(value)){
+        displayError(zipcodeError, "Enter a valid postnumber, 5 tokens")
         return false
     }
-    clearError(postnumberError)
+    clearError(zipcodeError)
     return true
 }
 
 function validateCity(){
     let value = cityInput.value.trim()
-    if (value.length < 2 ){
+    if (value.length < 2 || value.length > 20){
         displayError(cityError, "Minimum 2 letters")
         return false
-    } else if( value.length > 50){
-        displayError(cityError, "Max 20 letters")
-        return false}
-        else{
+    } else{
     clearError(cityError)
     return true}
 }
@@ -108,10 +111,18 @@ function validateForm (){
     let okEmail = validateEmail()
     let okNumber = validateNumber()
     let okStreet = validateStreet()
-    let okPostnumber = validatePostnumber()
+    let okZipcode = validateZipcode()
     let okCity = validateCity()
-    return okName && okEmail && okNumber && okStreet && okPostnumber && okCity
+    return okName && okEmail && okNumber && okStreet && okZipcode && okCity
 }
+
+
+
+
+form.addEventListener("submit", function(event){
+    event.preventDefault()
+
+result.innerHTML=""
 
 if (validateForm()){
     result.innerHTML= "Your order will be sent shortly"
@@ -119,10 +130,4 @@ if (validateForm()){
 }else {
     result.innerHTML = "fix errors"
     result.className ="text-danger"
-}
-
-form.addEventListener("submit", function(event) {event.preventDefault()
-
-result.innerHTML=""
-
-})
+}})
