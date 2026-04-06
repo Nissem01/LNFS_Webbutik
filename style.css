@@ -1,25 +1,25 @@
-html, body{
+html,
+body {
     height: 100%;
 }
 
-main{
-    flex: 1; 
+main {
+    flex: 1;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    /*background: linear-gradient(to right, royalblue, indigo )*/
     font-family: 'Poppins', sans-serif;
 }
 
-.nav-link{
+.nav-link {
     margin-left: 20px;
     font-weight: 500;
 }
 
-.nav-link:hover{
-    color:#c8a97e;
+.nav-link:hover {
+    color: #c8a97e;
 }
 
 .hero {
@@ -27,23 +27,23 @@ body {
     background-image: url("images/hero.png");
     background-size: cover;
     background-position: center;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.hero-box{
-    background: rgb(255, 255, 255, 0.8); 
-    padding: 20px 30px; 
+.hero-box {
+    background: rgb(255, 255, 255, 0.8);
+    padding: 20px 30px;
     border-radius: 10px;
 }
 
-.footer{
+.footer {
     background: #e6d5c3;
 }
 
-.footer-card{
-    background: rgba(255,255,255,0.8);
+.footer-card {
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
 }
