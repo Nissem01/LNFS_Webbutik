@@ -1,23 +1,23 @@
 const container = document.getElementById("categories");
 
 const categories = [
-  "electronics",
-  "jewelery",
-  "men's clothing",
-  "women's clothing",
+    "electronics",
+    "jewelery",
+    "men's clothing",
+    "women's clothing",
 ];
 
 categories.forEach((category) => {
-  fetch(
-    `https://fakestoreapi.com/products/category/${encodeURIComponent(category)}`,
-  )
-    .then((res) => res.json())
-    .then((products) => {
-      const product = products[0];
+    fetch(
+            `https://fakestoreapi.com/products/category/${encodeURIComponent(category)}`,
+        )
+        .then((res) => res.json())
+        .then((products) => {
+            const product = products[0];
 
-      const image = product.image;
+            const image = product.image;
 
-      const card = `
+            const card = `
             <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 shadow-sm border-0 text-center overflow-hidden">
 
@@ -36,6 +36,6 @@ categories.forEach((category) => {
             
            `;
 
-      container.innerHTML += card;
-    });
+            container.innerHTML += card;
+        });
 });

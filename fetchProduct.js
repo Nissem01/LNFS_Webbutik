@@ -4,29 +4,23 @@ const productId = params.get("id");
 console.log(productId);
 
 function getProductById(productId) {
-  let APIlink = `https://fakestoreapi.com/products/${productId}`;
+    let APIlink = `https://fakestoreapi.com/products/${productId}`;
 
-  container.innerHTML = "";
+    container.innerHTML = "";
 
-  fetch(APIlink)
-    .then((response) => response.json())
-    .then((product) => {
-      const cardHTML = `
-            
-                              <img src="${product.image}" class="img-fluid p-3" style="max-height:180px; object-fit: contain;">
-                               
-                                    <h5>${product.title}</h5>
-                                    
-                                                              
-                                    <br>
-                                </div>
-                            <p class="card-text">${product.description}</p> 
-                            <p class="fw-bold mb-2">${product.price} € </p> 
-                    </div>
+    fetch(APIlink)
+        .then((response) => response.json())
+        .then((product) => {
+            const cardHTML = `
+                    <img src="${product.image}" class="img-fluid p-3" style="max-height:180px; object-fit: contain;">          
+                    <h5>${product.title}</h5>                                                    
+                    <br>
+                    <p class="card-text">${product.description}</p> 
+                    <p class="fw-bold mb-2">${product.price} € </p> 
                 `;
 
-      container.innerHTML += cardHTML;
-    })
-    .catch((error) => console.error("Error:", error));
+            container.innerHTML += cardHTML;
+        })
+        .catch((error) => console.error("Error:", error));
 }
 getProductById(productId);
