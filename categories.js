@@ -1,19 +1,23 @@
 const container = document.getElementById('categories');
 
 const categories = [
-    "electronics",
+   /*  "electronics",
     "jewelery",
     "men's clothing",
-    "women's clothing"
+    "women's clothing", */
+    "fragrances",
+    "beauty",
+    "furniture",
+    "groceries"
 ];
 
 categories.forEach(category => {
-    fetch(`https://fakestoreapi.com/products/category/${encodeURIComponent(category)}`) 
+    fetch(`https://dummyjson.com/products/category/${encodeURIComponent(category)}`) 
         .then(res => res.json())
-        .then(products => {
-            const product = products[0]; 
+        .then(data => {
+            const product = data.products[0]; 
 
-            const image = product.image;
+            const image = product.images[0];
 
             const card = `
             <div class="col-12 col-md-6 col-lg-3">
