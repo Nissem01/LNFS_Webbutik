@@ -1,12 +1,12 @@
-let container = document.getElementById('specificProductDisplay');
-const params  = new URLSearchParams(window.location.search);
-const productId  = params.get("id");
-console.log(productId)
+let container = document.getElementById("specificProductDisplay");
+const params = new URLSearchParams(window.location.search);
+const productId = params.get("id");
+console.log(productId);
 
 function getProductById(productId) {
     let APIlink = `https://dummyjson.com/products/${productId}`;
 
-    container.innerHTML = "";
+  container.innerHTML = "";
 
     fetch(APIlink)
         .then(response => response.json())
@@ -21,13 +21,13 @@ function getProductById(productId) {
                                     ${product.price} €                                
                                     <br>
                                 </div>
-                            </div>
+                            <p class="card-text">${product.description}</p> 
+                            <p class="fw-bold mb-2">${product.price} € </p> 
                     </div>
-                `
+                `;
 
-                container.innerHTML += cardHTML;
-            ;
-        })
-        .catch(error => console.error('Error:', error));
+      container.innerHTML += cardHTML;
+    })
+    .catch((error) => console.error("Error:", error));
 }
 getProductById(productId);

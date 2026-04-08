@@ -1,12 +1,11 @@
-let container = document.getElementById('productDisplay');
-const params  = new URLSearchParams(window.location.search);
-const category  = params.get("category");
-
+let container = document.getElementById("productDisplay");
+const params = new URLSearchParams(window.location.search);
+const category = params.get("category");
 
 function getProductsByCategory(category) {
     let APIlink = "https://dummyjson.com/products";
 
-    container.innerHTML = "";
+  container.innerHTML = "";
 
     fetch(APIlink)
         .then(response => response.json())
@@ -24,19 +23,19 @@ function getProductsByCategory(category) {
                               <img src="${product.images[0]}" class="card-img-top p-3" style="height:180px; object-fit: contain;">
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">${product.title}</h5>
-                                    ${product.price} €                                
-                                    <br>
-                                    <a href="checkout.html?id=${product.id}" class="btn btn-dark mt-auto mx-auto"> Buy</a>
+
+                                <div class="mt-auto">
+                                <p class="fw-bold mb-2">${product.price} € </p>  
+                                <a href="checkout.html?id=${product.id}" class="btn btn-dark mt-auto mx-auto"> Buy</a>
                                 </div>
                             </div>
                     </div>
-                `
+                `;
 
-                container.innerHTML += cardHTML;
-            });
-        })
-        .catch(error => console.error('Error:', error));
+        container.innerHTML += cardHTML;
+      });
+    })
+    .catch((error) => console.error("Error:", error));
 }
-
 
 getProductsByCategory(category);

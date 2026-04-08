@@ -1,4 +1,4 @@
-const container = document.getElementById('categories');
+const container = document.getElementById("categories");
 
 const categories = [
    /*  "electronics",
@@ -19,7 +19,7 @@ categories.forEach(category => {
 
             const image = product.images[0];
 
-            const card = `
+      const card = `
             <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 shadow-sm border-0 text-center overflow-hidden">
 
@@ -32,16 +32,12 @@ categories.forEach(category => {
                 <div class="card-body d-flex flex-column justify-content-center">   
                     <h5 class="card-title">${category}</h5>
                     </div>
-
                     </a>
                     </div>
                     </div>
             
-           `; 
-        
-           container.innerHTML += card;
-        });
+           `;
 
+      container.innerHTML += card;
+    });
 });
-
-            
